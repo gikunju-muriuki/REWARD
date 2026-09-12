@@ -1,0 +1,30 @@
+name: Steem Claim Rewards Bot
+
+on:
+  schedule:
+    # Runs everyday at 16:40 PM EAT (13:40 UTC)
+    - cron: '40 13 * * *'
+  workflow_dispatch: 
+
+jobs:
+  claim-rewards:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository Code
+        uses: actions/checkout@v4
+
+      - name: Set up Python Environment
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install Project Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install beem requests
+
+      - name: Run Reward Claiming Script
+        env:
+          STEEM_POSTING_KEY: ${{ secrets.STEEM_POSTING_KEY }}
+        run: python claim_rewards.py
