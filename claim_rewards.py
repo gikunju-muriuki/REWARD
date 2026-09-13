@@ -31,16 +31,16 @@ try:
     has_sbd = float(reward_sbd) > 0
     has_vests = float(reward_vests) > 0
     
-    if has_steem or has_sbd or has_vests:
+        if has_steem or has_sbd or has_vests:
         print("Claiming accumulated rewards...")
-        # Broadcast claim operation to the blockchain
-        stm.claim_reward_balance(
-            account=MY_ACCOUNT,
+        # Call the method on the account instance instead of the stm instance
+        account.claim_reward_balance(
             reward_steem=reward_steem,
             reward_sbd=reward_sbd,
             reward_vests=reward_vests
         )
         print("Rewards successfully claimed!")
+
     else:
         print("No pending rewards found to claim.")
 
