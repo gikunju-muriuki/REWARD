@@ -26,10 +26,10 @@ try:
     
     print(f"Pending Rewards -> STEEM: {reward_steem}, SBD: {reward_sbd}, VESTS: {reward_vests}")
     
-    # Check if there is anything to claim (balances are strings like '0.000 STEEM')
-    has_steem = float(reward_steem.split()[0]) > 0
-    has_sbd = float(reward_sbd.split()[0]) > 0
-    has_vests = float(reward_vests.split()[0]) > 0
+        # Check if there is anything to claim (beem Amount objects convert directly to float)
+    has_steem = float(reward_steem) > 0
+    has_sbd = float(reward_sbd) > 0
+    has_vests = float(reward_vests) > 0
     
     if has_steem or has_sbd or has_vests:
         print("Claiming accumulated rewards...")
