@@ -2,8 +2,8 @@ name: Steem Claim Rewards Bot
 
 on:
   schedule:
-    # Runs everyday at 16:40 PM EAT (13:40 UTC)
-    - cron: '40 13 * * *'
+    # Runs everyday at 17:10 EAT
+    - cron: '10 14 * * *'
   workflow_dispatch: 
 
 jobs:
