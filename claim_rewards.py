@@ -3,7 +3,7 @@ from beem import Steem
 from beem.account import Account
 
 # 1. Configuration variables
-MY_ACCOUNT = "bnwt"  
+MY_ACCOUNT = "blog.god"  
 PROXY_URL = "https://steem-proxy.gikunju.workers.dev"  
 
 # 2. Extract configuration from GitHub Secrets
