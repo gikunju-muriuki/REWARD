@@ -1,6 +1,20 @@
 import os
 from beem import Steem
 from beem.account import Account
+import time
+import random
+
+# =========================================================================
+# GITHUB ACTIONS REWARD CLAIM DELAY
+# =========================================================================
+# Delays the reward claim by a casual, random 1 to 15 minutes.
+# This ensures that claiming rewards does not hit at a robotic, fixed second.
+reward_delay_seconds = random.randint(60, 900)
+
+print(f"Cloudflare cron handshake cleared.")
+print(f"Jitter activated: Sleeping for {reward_delay_seconds / 60:.1f} minutes before claiming rewards...")
+time.sleep(reward_delay_seconds)
+# =========================================================================
 
 # 1. Configuration variables
 MY_ACCOUNT = "blog.god"  
